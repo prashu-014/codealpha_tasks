@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <main class="">
+
+    <div class=" row " id="mainbox">
+      <h1 class="fw-bold text-danger">Age <span class="text-white">calculator</span></h1>
+      <hr>
+
+      <section class="col">
+        <div class="field">
+          <span class="fw-bold">Your Date Of Birth</span>
+          <input type="date" class="w-100 py-1 " title="date" id="birthDay">
+        </div>
+        <div class="field my-2">
+          <span class="fw-bold">Today Date</span>
+          <input type="text" class="w-100 py-1 " title="date" id="todate" readonly>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between">
+          <button class="bg-warning border-0 mt-2 py-1 px-3 fw-bold" onclick="calculateAge()"> calculate my
+            ages</button>
+          <button class="bg-danger border-0 mt-2 py-1 px-2 fw-bold" onclick=clearData()>Reset</button>
+        </div>
+
+
+
+
+      </section>
+      <section class="col ">
+        <div class="accordion accordion-flush" id="accordionFlushExample" class="">
+          <div class="accordion-item ">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                How many days until my birthday
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body text-black-50" id="untilBirth">-----</div>
+            </div>
+          </div>
+
+          <div class="accordion-item my-1">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                How old am I today
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body text-black-50" id="yearOld">-----</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <div class="fs-3" id="result">
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+  <div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+    //window on load reset fields
+    window.addEventListener("load", () => {
+      document.getElementById('birthDay').value = "";
+      document.getElementById('todate').value = new Date().toDateString();
+
+    })
+
+    //clear data 
+    function clearData() {
+      document.getElementById('birthDay').value = "";
+      document.getElementById('untilBirth').innerText = ""
+      document.getElementById('yearOld').innerText = ""
+      document.getElementById('mainbox').classList.remove("increase");
+
+
+    }
+
+
+    let userInput = document.getElementById('birthDay')
+    userInput.max = new Date().toISOString().split("T")[0]
+
+
+    // calculate age 
+    function calculateAge() {
+      let userInput = document.getElementById('birthDay').value
+
+      console.log(userInput);
+      let mainBox = document.getElementById('mainbox')
+      let result = document.getElementById('result')
+
+
+
+      if (userInput === "") {
+        alert("Enter details")
+        return false
+      }
+
+
+
+      mainBox.classList.add("increase");
+      let birthday = new Date(userInput);
+
+      let d1 = birthday.getDate();
+      let m1 = birthday.getMonth() + 1;
+      let y1 = birthday.getFullYear();
+
+      let today = new Date()
+
+      let d2 = today.getDate();
+      let m2 = today.getMonth() + 1;
+      let y2 = today.getFullYear();
+
+
+      let d3, m3, y3;
+
+      y3 = y2 - y1;
+
+
+      if (m2 >= m1) {
+        m3 = m2 - m1;
+      }
+      else {
+        y3--;
+        m3 = 12 + m2 - m1;
+      }
+
+      if (d2 >= d1) {
+        d3 = d2 - d1;
+      }
+      else {
+        m3--;
+        d3 = getDayInMonth(y1, m1) + d2 - d1;
+
+      }
+      if (m3 < 0) {
+        m3 = 11;
+        y3--;
+      }
+
+      if (y3 <= 0 && m3 <= 0) {
+        result.innerHTML = `  ${d3} days old`
+
+      }
+      else if (y3 <= 0) {
+        result.innerHTML = ` ${m3} months and ${d3} days old`
+
+
+      }
+      else {
+        result.innerHTML = ` ${y3} years, ${m3} months and ${d3} days old`
+
+      }
+      document.getElementById('yearOld').innerText = y3 + " " + "Years";
+
+      untilBirthday(birthday, today);
+
+    }
+
+
+
+
+    //  calculate how many day remaining birthday
+    function untilBirthday(birthDay, today) {
+
+
+
+      let nextbirthday = new Date()
+
+      nextbirthday.setDate(birthDay.getDate())
+      nextbirthday.setMonth(birthDay.getMonth())
+      nextbirthday.setFullYear(today.getFullYear())
+
+
+
+
+      let timediff, dayuntilBirthday;
+
+
+      if (today > nextbirthday) {
+
+        nextbirthday.setFullYear(nextbirthday.getFullYear() + 1)
+
+
+        document.getElementById('untilBirth').innerHTML = `Birthday Pass away next Date <br> ${nextbirthday.getDate()}- ${nextbirthday.getMonth() + 1}- ${nextbirthday.getFullYear()}`
+
+
+      }
+      else if (today < nextbirthday) {
+
+
+        timediff = nextbirthday - today;
+        dayuntilBirthday = Math.ceil(timediff / (1000 * 60 * 60 * 24));
+
+
+        document.getElementById('untilBirth').innerHTML = `${dayuntilBirthday} remaining for your birthday`
+
+
+
+      }
+      else {
+        alert("Happy Birthday")
+      }
+
+    }
+
+    function getDayInMonth(year, month) {
+      return new Date(year, month, 0).getDate()
+    }
+
+
+  </script>
+
+</body>
+
+
+</html>
