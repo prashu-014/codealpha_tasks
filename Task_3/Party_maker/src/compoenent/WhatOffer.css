@@ -1,0 +1,155 @@
+.service_container {
+    color: white;
+    max-width: var(--max-width);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    min-height: 100vh;
+
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.serviceBox_left {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 3rem;
+
+}
+
+.serviceBox_left h1 {
+    font-size: 5vw;
+    padding: 1rem 0;
+}
+
+.serviceBox_right img {
+    
+    max-width: 100%;
+    filter: brightness(70%);
+
+
+
+}
+.serviceBox_right
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ser_cards {
+    display: grid;
+    width: 100%;
+
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 0 1rem;
+
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ser_card {
+    border: 2px solid  #757373;
+    padding: 0.5rem;
+  
+}
+
+.ser_card span {
+    font-size: 1.2rem;
+    
+   
+    display: block;
+    padding: 0.5rem;
+   border-top: 1px solid #757373;
+}
+
+
+
+.ser_card img {
+    max-width: 70px;
+}
+
+@media (max-width:768px) {
+
+    .serviceBox_right {
+        display: none;
+    }
+
+    .service_container {
+
+
+
+        grid-template-columns: 1fr;
+
+        padding: 1rem 0;
+
+    }
+    .serviceBox_left {
+
+        
+        padding: 3rem 0;
+    
+    }
+
+    .ser_cards {
+
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: 0 1rem;
+
+        text-align: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .ser_card span {
+        font-size: 1rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    .serviceBox_left h1 {
+        font-size: 6vw;
+
+    }
+
+
+}
+
+
+@media (max-width:480px) {
+    .service_container {
+
+        
+
+        min-height: 50vh;
+    }
+
+    .ser_cards {
+
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 0 0.5rem;
+
+
+    }
+
+    .ser_card img {
+        max-width: 50px;
+    }
+
+    .ser_card span {
+        font-size: 0.5rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    .serviceBox_left h1 {
+        font-size: 7vw;
+
+    }
+
+}

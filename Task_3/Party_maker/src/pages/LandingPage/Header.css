@@ -1,0 +1,139 @@
+.Homepage
+{
+    max-width: var(--max-width);
+  
+    margin: auto;
+    
+    height: calc(100vh - 3vh);
+    position: relative;
+    
+    
+    
+}
+.col
+{
+   
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+}
+.col img
+{
+    max-width: 100%;
+    object-fit: cover;
+  
+   
+    filter: brightness(50%);
+
+}
+.contents
+{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+    text-align: center;
+    max-width:600px ;
+
+}
+.contents h1
+{
+    font-size: 4vw;
+    color: white;
+    font-weight: bold;
+    color: rgb(240, 210, 9);
+}
+.contents p{
+    color: rgba(255, 235, 205, 0.544);
+
+}
+.sub_btn
+{
+    padding: 0.5rem 1rem;
+    background-color: rgb(255, 213, 0);
+    margin-top: 1rem;
+}
+
+@media ((min-width:768px) and (max-width:1024px))
+{
+    .Homepage
+{
+    height: auto;
+    
+    
+    
+}
+    .col
+    {
+       
+        height: auto;
+     
+        
+    }
+    .contents
+{
+    position: absolute;
+    top: 30%;
+    width:100% ;
+    
+}
+
+
+}
+
+@media (max-width:767px) {
+
+    .Homepage
+    {
+        height: auto;
+    }
+    .col
+{
+   
+    height: auto;
+ 
+    
+}
+.contents h1
+{
+    font-size: 7vw;
+}
+.contents
+{
+    position: absolute;
+    top: 40%;
+    width:100% ;
+    
+}
+.contents p{
+   font-size: 0.8rem;
+   text-overflow: ellipsis;
+   
+    
+}
+}
+
+@media (max-width:480px)
+{
+   
+.contents
+{
+    
+  
+    width:80% ;
+    
+}
+.contents p{
+    display: none;
+    
+     
+ }
+ .contents h1
+ {
+    color: white;
+    
+ }
+
+}

@@ -1,0 +1,28 @@
+.login_container
+{
+    max-width: var(--max-width);
+    margin: auto;
+    background-color:rgb(39, 38, 36) ;
+    height: 90vh;
+    display: grid;
+    place-content: center;
+}
+.login_wrapper
+{
+   
+    padding: 1rem;
+    width: 400px;
+    border: 2px solid wheat;
+    /* background-color: rgba(250, 235, 215, 0.704); */
+}
+.login_wrapper h1
+{
+    color: wheat;
+    text-decoration: underline;
+}
+.loginBTN
+{
+    width: 100%;
+    padding: 0.5rem 0;
+
+}

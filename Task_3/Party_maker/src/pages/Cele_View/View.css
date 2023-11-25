@@ -1,0 +1,60 @@
+.calender_main
+{
+    background-color: rgba(47, 51, 51, 0.196);
+    max-width: var(--max-width);
+    height: 100vh;
+    margin: auto;
+    display: grid;
+    place-items: center;
+ 
+}
+
+.calender_wrapper
+{
+    
+    /* background-color: aqua; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+.celender_right
+{
+   
+    padding: 1rem 3em;
+}
+.celender_right h1
+{
+    text-align: center;
+   border-bottom: 2px solid white;
+   color: white;
+   margin-bottom: 1rem;
+}
+select{
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-top:1rem ;
+}
+.bookNowBtn
+{
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+.celender
+{
+    display: grid;
+    place-items: center;
+}
+.celender img
+{
+max-width: 400px;
+    background-blend-mode: darken;
+}
+
+input[type=Date]
+{
+    padding: 0.5rem ;
+    width: 50%;
+}

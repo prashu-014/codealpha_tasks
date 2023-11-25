@@ -1,0 +1,40 @@
+footer{
+    color: white;
+
+    max-width: var(--max-width);
+    min-height: 40vh;
+   
+    margin: auto;
+    display: grid;
+    place-items: center;
+   
+    border-top: 2px solid wheat;
+}
+.footer_container
+{
+    /* background-color: blue; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    padding: 1rem;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.652);
+   
+    
+}
+.footer_email
+{
+    padding: 0.5rem ;
+    width: 100%;
+    
+   
+}
+.footer_signup
+{
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid wheat;
+    color: white;
+}

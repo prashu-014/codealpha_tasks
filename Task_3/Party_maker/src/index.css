@@ -1,0 +1,22 @@
+*,::before,::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root
+{
+    --primary-color :rgba(0, 0, 0, 0.977);
+    --nav-color:black;
+    --max-width:1320px;
+}
+body{
+background-color:var(--primary-color);
+}
+

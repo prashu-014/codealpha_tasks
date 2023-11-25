@@ -1,0 +1,29 @@
+.contact_main
+{
+    max-width: var(--max-width);
+    margin: auto;
+    background-color: black;
+    padding-top: 1rem;
+    display: grid;
+    place-items: center;
+    color: white;
+    height: 100vh;
+
+}
+.contact_form
+{
+    width: 400px;
+    padding: 1rem;
+    border: 2px solid white;
+}
+textarea
+{
+    width: 100%;
+    resize: none;
+}
+.submitBtn
+{
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
